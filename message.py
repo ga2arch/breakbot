@@ -33,8 +33,8 @@ class Message():
             return self.nick_full.split("@")[0]
         raise Exception("Couldn't parse full nick %s" %self.nick_full)
     def __str__(self):
-        nick = self.get_nick().decode('utf-8', 'ignore')
-        s = "%s: %s in %s said to %s: %s" % (self.time, nick, self.chan, self.target, self.msg)
+        ##nick = self.get_nick().decode('utf-8', 'ignore')
+        s = "%s: %s in %s said to %s: %s" % (self.time, self.get_nick(), self.chan, self.target, self.msg)
         return (s).encode("utf-8", 'ignore')
     def serialize(self):
         return " @@@ ".join([str(self.time), self.kind, self.nick_full, self.chan, self.msg])
