@@ -98,7 +98,7 @@ class WAInterface(threading.Thread):
             self.methodsInterface.call("message_ack", (jid, messageId))
     @catch_them_all
     def onGroup_MessageReceived(self, messageId, jid, author, messageContent, timestamp, wantsReceipt, pushName):
-        message = Message(kind="wa", nick_full=pushName.decode('utf8','ignore'), chan=jid, msg=messageContent.decode('utf8', 'ignore'))
+        message = Message(kind="wa", nick_full=pushName.decode('utf8','ignore'), chan=jid, msg=messageContent)
         message.time = Timestamp(ms_int = timestamp*1000)
         self.msg_handler(message)
         sendReceipts = True
