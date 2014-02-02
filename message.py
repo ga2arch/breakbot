@@ -35,7 +35,7 @@ class Message():
     def __str__(self):
         nick = self.get_nick().decode('utf-8', 'ignore')
         s = "%s: %s in %s said to %s: %s" % (self.time, nick, self.chan, self.target, self.msg)
-        return ().encode("utf-8", 'ignore')
+        return (s).encode("utf-8", 'ignore')
     def serialize(self):
         return " @@@ ".join([str(self.time), self.kind, self.nick_full, self.chan, self.msg])
     def deserialize(self, string):
